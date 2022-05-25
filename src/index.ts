@@ -1,13 +1,22 @@
-interface IHomer {
-    name(): String;
+import { NAME } from "./test";
+
+interface Person {
+  name: string;
+  greet: () => void;
 }
 
+class Human implements Person {
+  name: string;
 
-class Homer implements IHomer {
-    name(){
-        return 'Homer Simpson';
-    }
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(this.name);
+  }
 }
 
-const instance = new Homer();
-console.log(instance.name());
+const joe = new Human(NAME);
+
+joe.greet();
